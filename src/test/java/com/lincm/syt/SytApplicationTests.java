@@ -19,7 +19,7 @@ class SytApplicationTests {
 	public void testUpdate() {
 		User user = new User();
 		user.setId(1393757406870331393L);
-		user.setName("mery");
+		user.setName("lucy");
 		int count = userMapper.updateById(user);
 		System.out.println(count);
 	}
@@ -28,9 +28,9 @@ class SytApplicationTests {
 	@Test
 	public void testAdd() {
 		User user = new User();
-		user.setName("lily");
-		user.setAge(22);
-		user.setEmail("111@qq.com");
+		user.setName("mery");
+		user.setAge(23);
+		user.setEmail("222@qq.com");
 		int insert = userMapper.insert(user);
 		System.out.println(insert);
 	}
