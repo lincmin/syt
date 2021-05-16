@@ -19,6 +19,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler{
 		log.info("start insert fill ....");
 		this.setFieldValByName("createTime", new Date(), metaObject);
 		this.setFieldValByName("updateTime", new Date(), metaObject);
+		this.setFieldValByName("version", 1, metaObject);
 	}
 
 	//mp执行修改操作,执行这个方法

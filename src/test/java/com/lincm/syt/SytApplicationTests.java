@@ -14,6 +14,16 @@ class SytApplicationTests {
 	@Autowired
 	private UserMapper userMapper;
 	
+	//测试乐观锁
+	@Test
+	public void testOptimisticLocker() {
+		//根据id查询
+		User user = userMapper.selectById(1393944776873738241L);
+		//修改
+		user.setName("张三");
+		userMapper.updateById(user);
+	}
+	
 	//修改
 	@Test
 	public void testUpdate() {
@@ -28,9 +38,9 @@ class SytApplicationTests {
 	@Test
 	public void testAdd() {
 		User user = new User();
-		user.setName("mery");
-		user.setAge(23);
-		user.setEmail("222@qq.com");
+		user.setName("李四");
+		user.setAge(24);
+		user.setEmail("333@qq.com");
 		int insert = userMapper.insert(user);
 		System.out.println(insert);
 	}
