@@ -14,6 +14,16 @@ class SytApplicationTests {
 	@Autowired
 	private UserMapper userMapper;
 	
+	//修改
+	@Test
+	public void testUpdate() {
+		User user = new User();
+		user.setId(1393757406870331393L);
+		user.setName("mery");
+		int count = userMapper.updateById(user);
+		System.out.println(count);
+	}
+	
 	//添加
 	@Test
 	public void testAdd() {
