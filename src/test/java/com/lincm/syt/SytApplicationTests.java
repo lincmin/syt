@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lincm.syt.entity.User;
 import com.lincm.syt.mapper.UserMapper;
 
@@ -16,6 +17,26 @@ import com.lincm.syt.mapper.UserMapper;
 class SytApplicationTests {
 	@Autowired
 	private UserMapper userMapper;
+	
+	//分页查询
+	@Test
+	public void selectPage() {
+		Page<User> page = new Page(1,3);
+		Page<User> userPage = userMapper.selectPage(page, null);
+		//返回对象得到分页所有数据
+		long pages = userPage.getPages();//总页数
+		long current = userPage.getCurrent();//当前页
+		List<User> records = userPage.getRecords();//查询数据集合
+		long total = userPage.getTotal();//总记录数
+		boolean hasNext = userPage.hasNext();//下一页
+		boolean hasPrevious = userPage.hasPrevious();//上一页
+		System.out.println(pages);
+		System.out.println(current);
+		System.out.println(records);
+		System.out.println(total);
+		System.out.println(hasNext);
+		System.out.println(hasPrevious);
+	}
 	
 	//简单条件查询
 	@Test
