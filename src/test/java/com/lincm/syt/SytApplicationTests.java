@@ -1,5 +1,6 @@
 package com.lincm.syt;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,12 @@ import com.lincm.syt.mapper.UserMapper;
 class SytApplicationTests {
 	@Autowired
 	private UserMapper userMapper;
+	//多个id批量查询
+	@Test
+	public void testSelect1() {
+	List<User> users = userMapper.selectBatchIds(Arrays.asList(1,2,3));
+		System.out.println(users);
+	}
 	
 	//测试乐观锁
 	@Test
