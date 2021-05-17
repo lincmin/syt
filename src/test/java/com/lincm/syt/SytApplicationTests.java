@@ -21,7 +21,7 @@ class SytApplicationTests {
 	//根据id删除记录
 	@Test
 	public void testDeleteId() {
-		int rows = userMapper.deleteById(1L);
+		int rows = userMapper.deleteById(1394318827232399361L);
 		System.out.println(rows);
 	}
 	
@@ -85,9 +85,9 @@ class SytApplicationTests {
 	@Test
 	public void testAdd() {
 		User user = new User();
-		user.setName("李四");
-		user.setAge(24);
-		user.setEmail("333@qq.com");
+		user.setName("万物");
+		user.setAge(25);
+		user.setEmail("555@qq.com");
 		int insert = userMapper.insert(user);
 		System.out.println(insert);
 	}
