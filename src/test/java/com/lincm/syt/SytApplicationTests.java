@@ -18,6 +18,13 @@ class SytApplicationTests {
 	@Autowired
 	private UserMapper userMapper;
 	
+	//根据id删除记录
+	@Test
+	public void testDeleteId() {
+		int rows = userMapper.deleteById(1L);
+		System.out.println(rows);
+	}
+	
 	//分页查询
 	@Test
 	public void selectPage() {
