@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lincm.syt.entity.User;
 import com.lincm.syt.mapper.UserMapper;
@@ -17,6 +18,19 @@ import com.lincm.syt.mapper.UserMapper;
 class SytApplicationTests {
 	@Autowired
 	private UserMapper userMapper;
+	
+	//mp复杂查询操作
+	@Test
+	public void testSelect() {
+		QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+//		queryWrapper.ge("age", 21);//年龄大于等于21
+//		queryWrapper.eq("name", "Tom");
+		queryWrapper.between("age", 24, 28);//年龄在24-28
+//		queryWrapper.like("name", "张");
+		queryWrapper.orderByDesc("id");//根据id倒序
+		List<User> users = userMapper.selectList(queryWrapper);
+		System.out.println(users);
+	}
 	
 	//根据id删除记录
 	@Test
